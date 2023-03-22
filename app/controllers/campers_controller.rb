@@ -2,7 +2,7 @@ class CampersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     def index
         campers = Camper.all
-        render json: campers, status: :ok
+        render json: campers,  each_serializer: CamperActivitiesSerializer
     end
     def show
         camper= Camper.find(params[:id])

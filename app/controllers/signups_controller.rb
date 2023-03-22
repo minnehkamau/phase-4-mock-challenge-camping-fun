@@ -1,13 +1,13 @@
 class SignupsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    def index
-        signups = Signup.all
-        render json: signups, status: :ok
-    end
-    def show
-        signup = Signup.find(params[:id])
-        render json: signup, status: :ok
-    end
+    # def index
+    #     signups = Signup.all
+    #     render json: signups, status: :ok
+    # end
+    # def show
+    #     signup = Signup.find(params[:id])
+    #     render json: signup, status: :ok
+    # end
     def create
         signup= Signup.create(signup_params)
         if signup.valid?
